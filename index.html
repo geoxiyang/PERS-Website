@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="en"><head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PEaRS Lab — Plant Ecology and Remote Sensing Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,200;8..60,300;8..60,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Lora:wght@400;500;600&amp;display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest: oklch(0.40 0.075 150);
+    --forest-deep: oklch(0.28 0.060 150);
+    --lichen: oklch(0.78 0.060 130);
+    --serif: "Lora", Georgia, serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: #0a1a0f;
+    color: white;
+  }
+
+  /* ── Background video / image layer ─────────────────────────── */
+  .bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+  }
+
+  /* Video element — hidden until src is set */
+  .bg video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Fallback still image (used when no video is loaded) */
+  .bg-fallback {
+    position: absolute;
+    inset: 0;
+    /* Deep forest gradient — placeholder until drone footage is uploaded */
+    background:
+      radial-gradient(ellipse 120% 80% at 60% 40%,
+        oklch(0.32 0.065 148) 0%,
+        oklch(0.22 0.055 152) 40%,
+        oklch(0.12 0.035 155) 100%),
+      repeating-linear-gradient(
+        120deg,
+        transparent 0 40px,
+        oklch(0.10 0.025 155 / 0.18) 40px 80px
+      );
+    animation: bgShift 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes bgShift {
+    from { filter: brightness(1) saturate(1); }
+    to   { filter: brightness(1.08) saturate(1.15); }
+  }
+
+  /* ── Dark vignette overlay ───────────────────────────────────── */
+  .vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background:
+      radial-gradient(ellipse 90% 90% at 50% 50%,
+        transparent 20%,
+        rgba(0,0,0,0.70) 100%),
+      linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.40) 35%,
+        rgba(0,0,0,0.40) 65%,
+        rgba(0,0,0,0.75) 100%
+      );
+  }
+
+  /* ── Content ─────────────────────────────────────────────────── */
+  .stage {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding: 4rem clamp(2rem, 6vw, 7rem);
+    gap: 0;
+    color: white;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.80);
+    margin-bottom: 1.2rem;
+    animation: fadeDown 1.2s ease both;
+    animation-delay: 0.2s;
+  }
+
+  .title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    text-wrap: balance;
+    max-width: 22ch;
+    animation: fadeDown 1.2s ease both;
+    animation-delay: 0.4s;
+  }
+
+  .subtitle {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.06em;
+    margin-top: 0.85rem;
+    max-width: 42ch;
+    line-height: 1.6;
+    animation: fadeDown 1.2s ease both;
+    animation-delay: 0.6s;
+  }
+
+  /* ── Enter link ──────────────────────────────────────────────── */
+  .enter-wrap {
+    margin-top: 2.5rem;
+    animation: fadeDown 1.2s ease both;
+    animation-delay: 0.85s;
+  }
+
+  .enter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 0.65rem 1.2rem;
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.25s, border-color 0.25s, gap 0.25s, color 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .enter::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      rgba(255,255,255,0.06) 0%,
+      transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .enter:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.55);
+    gap: 1.2rem;
+    color: #fff;
+  }
+
+  .enter:hover::before { opacity: 1; }
+
+  .enter .arrow {
+    font-size: 1.1em;
+    transition: transform 0.25s;
+  }
+  .enter:hover .arrow { transform: translateX(4px); }
+
+  /* ── Corner accent – affiliation ────────────────────────────── */
+  .affil {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
+    text-align: center;
+    white-space: nowrap;
+    animation: fadeDown 1.4s ease both;
+    animation-delay: 1.1s;
+  }
+
+  /* ── Animations ──────────────────────────────────────────────── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Scanline texture overlay (very subtle) ──────────────────── */
+  .scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0,0,0,0.04) 3px,
+      rgba(0,0,0,0.04) 4px
+    );
+    pointer-events: none;
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .stage { padding: 2.5rem; }
+    .title { font-size: 1.4rem; }
+    .affil { font-size: 10px; letter-spacing: 0.10em; white-space: normal; text-align: center; max-width: 90vw; }
+  }
+</style>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1286.0" data-gr-ext-installed="" style="font-family: ui-monospace;">
+
+<!-- ── Background layer ──────────────────────────────────────────── -->
+<div class="bg">
+  <!--
+    DRONE FOOTAGE: Replace the src="" below with your video file path.
+    Recommended: MP4 (H.264), 1920×1080 or 3840×2160, 10–30 sec loop.
+    Upload your video to the root folder and update src accordingly.
+    Example: <video autoplay muted loop playsinline src="drone-footage.mp4"></video>
+  -->
+  <video id="bg-video" autoplay="" muted="" loop="" playsinline="" src="uploads/EnteringPage.mp4"></video>
+</div>
+
+<!-- ── Overlays ───────────────────────────────────────────────────── -->
+<div class="vignette"></div>
+<div class="scanlines"></div>
+
+<!-- ── Content ───────────────────────────────────────────────────── -->
+<div class="stage">
+  <div class="eyebrow">University of Virginia · Department of Environmental Sciences</div>
+
+  <h1 class="title" style="font-family: Lora, Georgia, serif;">Plant Ecology and Remote Sensing Lab</h1>
+
+  <p class="subtitle" style="width: 500px; height: 80px">
+    Reading the pulse of Earth's ecosystems — from the canopy down, and from orbit in.
+  </p>
+
+  <div class="enter-wrap">
+    <a class="enter" href="Lab Website.html">ENTER THE PERS LAB
+→</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
