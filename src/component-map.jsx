@@ -10,10 +10,10 @@ const FIELD_SITES = [
   },
   {
     id: "fs-02",
-    lat: 42.537,
-    lng: -72.191,
+    lat: 42.5356061,
+    lng: -72.1895687,
     label: "Harvard Forest — Temperate Deciduous",
-    imageUrl: null,
+    imageUrl: "images/field-sites/DSC_0086.jpg",
   },
   {
     id: "fs-03",
@@ -45,10 +45,10 @@ const FIELD_SITES = [
   },
   {
     id: "fs-07",
-    lat: 64.8,
-    lng: -146.3,
-    label: "Caribou-Poker Creeks — Alaska Arctic",
-    imageUrl: null,
+    lat: 65.15401,
+    lng: -147.50258,
+    label: "Caribou-Poker Creeks — Alaska Arctic (NEON BONA)",
+    imageUrl: "images/field-sites/IMG_6247.JPG",
   },
   {
     id: "fs-08",
@@ -56,6 +56,41 @@ const FIELD_SITES = [
     lng: -65.79,
     label: "El Yunque — Puerto Rico (MACROCOSM)",
     imageUrl: null,
+  },
+  {
+    id: "fs-09",
+    lat: 29.25,
+    lng: -90.66,
+    label: "Coastal Louisiana — LUMCON Ghost Forest",
+    imageUrl: "images/field-sites/IMG_4922.jpg",
+  },
+  {
+    id: "fs-10",
+    lat: 38.45,
+    lng: -76.13,
+    label: "Blackwater Wildlife Refuge — Coastal Maryland",
+    imageUrl: "images/field-sites/IMG_3278_2.JPG",
+  },
+  {
+    id: "fs-11",
+    lat: 37.923653,
+    lng: -78.272329,
+    label: "UVA Pace Tower — Virginia",
+    imageUrl: "images/field-sites/DJI_0062.JPG",
+  },
+  {
+    id: "fs-12",
+    lat: -2.6091,
+    lng: -60.2093,
+    label: "Amazon Forest — Manaus, Brazil (GOAmazon)",
+    imageUrl: "images/field-sites/DSC_0145.jpg",
+  },
+  {
+    id: "fs-18",
+    lat: 10.4333,
+    lng: -83.9833,
+    label: "La Selva Biological Station — Costa Rica",
+    imageUrl: "images/field-sites/IMG_3277.jpg",
   },
 ];
 
@@ -131,7 +166,7 @@ function InteractiveMapComponent({ sites }) {
       }
 
       popupContent += `
-          <a href="#gallery?site=${site.id}" style="display:inline-block;margin-top:10px;padding:6px 10px;background:#2d6a4f;color:#fff;border-radius:4px;font-size:12px;font-weight:500;text-decoration:none;border:none;cursor:pointer;">
+          <a onclick="event.preventDefault(); window.__navTo && window.__navTo('gallery', '${site.id}')" href="#gallery" style="display:inline-block;margin-top:10px;padding:6px 10px;background:#2d6a4f;color:#fff;border-radius:4px;font-size:12px;font-weight:500;text-decoration:none;border:none;cursor:pointer;">
             View gallery →
           </a>
         </div>`;
@@ -194,7 +229,7 @@ function InteractiveMapComponent({ sites }) {
           style="display:block;width:100%;margin-top:10px;border-radius:5px;object-fit:cover;max-height:160px;" />`;
       }
       popupContent += `
-          <a href="#gallery?site=${site.id}" style="display:inline-block;margin-top:10px;padding:6px 10px;background:#2d6a4f;color:#fff;border-radius:4px;font-size:12px;font-weight:500;text-decoration:none;border:none;cursor:pointer;">
+          <a onclick="event.preventDefault(); window.__navTo && window.__navTo('gallery', '${site.id}')" href="#gallery" style="display:inline-block;margin-top:10px;padding:6px 10px;background:#2d6a4f;color:#fff;border-radius:4px;font-size:12px;font-weight:500;text-decoration:none;border:none;cursor:pointer;">
             View gallery →
           </a>
         </div>`;

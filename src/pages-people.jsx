@@ -97,12 +97,10 @@ function PortraitCard({ m, onClick }) {
   return (
     <article onClick={onClick} className="person-card" style={{ cursor: "pointer" }}>
       <div style={{ position: "relative" }}>
-        <Placeholder
-          label={m.name.split(" ").map(s => s[0]).join("")}
-          palette={paletteClass}
-          aspect="3/4"
-          style={{ borderRadius: 8, width: "100%", aspectRatio: "3/4" }}
-        />
+        {m.image
+          ? <img src={m.image} alt={m.name} style={{ width: "100%", aspectRatio: "3/4", objectFit: "cover", objectPosition: "top", borderRadius: 8, display: "block", border: "1px solid var(--line)" }} />
+          : <Placeholder label={m.name.split(" ").map(s => s[0]).join("")} palette={paletteClass} aspect="3/4" style={{ borderRadius: 8, width: "100%", aspectRatio: "3/4" }} />
+        }
         <div className="overlay" style={{
           position: "absolute", inset: 0, borderRadius: 8, opacity: 0,
           background: "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.4) 100%)",
@@ -148,12 +146,10 @@ function GradCard({ m, onClick }) {
       transition: "border-color 0.15s",
     }}>
       <div style={{ position: "relative" }}>
-        <Placeholder
-          label={m.name.split(" ").map(s => s[0]).join("")}
-          palette="lichen"
-          aspect="1/1"
-          style={{ borderRadius: 6, width: "100%", aspectRatio: "1/1" }}
-        />
+        {m.image
+          ? <img src={m.image} alt={m.name} style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", objectPosition: "top", borderRadius: 6, display: "block", border: "1px solid var(--line)" }} />
+          : <Placeholder label={m.name.split(" ").map(s => s[0]).join("")} palette="lichen" aspect="1/1" style={{ borderRadius: 6, width: "100%", aspectRatio: "1/1" }} />
+        }
         <div className="grad-overlay" style={{
           position: "absolute", inset: 0, borderRadius: 6, opacity: 0,
           background: "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.35) 100%)",
@@ -204,9 +200,9 @@ function PersonModal({ m, onClose }) {
     };
   }, [onClose]);
 
-  return (
+  const modal = (
     <div onClick={onClose} style={{
-      position: "fixed", inset: 0, zIndex: 100,
+      position: "fixed", inset: 0, zIndex: 9999,
       background: "color-mix(in srgb, var(--ink) 55%, transparent)",
       backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)",
       display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem",
@@ -218,7 +214,10 @@ function PersonModal({ m, onClose }) {
         display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.3fr)",
         maxHeight: "calc(100vh - 4rem)",
       }} className="person-modal">
-        <Placeholder label={"portrait · " + m.name} palette="lichen" aspect="4/5" style={{ aspectRatio: "auto", height: "100%", minHeight: 360 }} />
+        {m.image
+          ? <img src={m.image} alt={m.name} style={{ width: "100%", height: "100%", minHeight: 360, objectFit: "cover", objectPosition: "top", display: "block" }} />
+          : <Placeholder label={"portrait · " + m.name} palette="lichen" aspect="4/5" style={{ aspectRatio: "auto", height: "100%", minHeight: 360 }} />
+        }
         <div style={{ padding: "2.25rem 2.25rem 2rem", overflowY: "auto" }}>
           <button onClick={onClose} style={{
             float: "right", appearance: "none", border: "1px solid var(--line-2)",
@@ -242,6 +241,13 @@ function PersonModal({ m, onClose }) {
           }}>
             {m.email && <div>EMAIL · <span style={{ color: "var(--forest)" }}>{m.email}</span></div>}
             <div>WITH THE LAB · {m.joined}</div>
+            {(m.linkedin || m.bluesky || m.scholar) && (
+              <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap", marginTop: "0.4rem" }}>
+                {m.linkedin && <a href={m.linkedin} target="_blank" rel="noopener" style={{ color: "var(--forest)", textDecoration: "none", borderBottom: "1px solid color-mix(in srgb, var(--forest) 35%, transparent)", paddingBottom: "1px" }}>LinkedIn</a>}
+                {m.bluesky && <a href={m.bluesky} target="_blank" rel="noopener" style={{ color: "var(--forest)", textDecoration: "none", borderBottom: "1px solid color-mix(in srgb, var(--forest) 35%, transparent)", paddingBottom: "1px" }}>Bluesky</a>}
+                {m.scholar && <a href={m.scholar} target="_blank" rel="noopener" style={{ color: "var(--forest)", textDecoration: "none", borderBottom: "1px solid color-mix(in srgb, var(--forest) 35%, transparent)", paddingBottom: "1px" }}>Google Scholar</a>}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -252,6 +258,8 @@ function PersonModal({ m, onClose }) {
       `}</style>
     </div>
   );
+
+  return ReactDOM.createPortal(modal, document.body);
 }
 
 Object.assign(window, { PeoplePage });

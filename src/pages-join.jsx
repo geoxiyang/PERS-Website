@@ -3,67 +3,51 @@
 function JoinPage({ go }) {
   return (
     <div>
-      <PageHeader
-        eyebrow="Join us"
-        title="There's a place for you here if you're curious about how plants are responding to a changing world."
-        desc="We welcome applications from prospective graduate students, postdocs, and undergraduate researchers. Below: what we look for, how to apply, and what to expect."
-      />
-
-      {/* Open positions */}
-      <section className="block">
+      {/* Hero — text left, photo right */}
+      <div className="page-hd" style={{ paddingBottom: "3rem" }}>
         <div className="wrap">
-          <SectionHead
-            index="01"
-            eyebrow="Open positions"
-            title="Currently recruiting."
-          />
-          <div className="grid-2">
-            <PositionCard
-              role="PhD student"
-              start="Fall 2027"
-              status="Recruiting"
-              desc="One funded position to work on multi-sensor remote sensing of arctic vegetation change. Strong quantitative or fieldwork background welcome — you don't need both."
-              ddl="Apply by Dec 1, 2026 via the UVA Environmental Sciences program."
-            />
-            <PositionCard
-              role="Postdoctoral Researcher"
-              start="Flexible · 2026"
-              status="Recruiting"
-              desc="Two-year position on imaging-spectroscopy-informed ecosystem modeling. Funded through the NASA TerraQ award."
-              ddl="Rolling review begins June 2026. Email a CV and brief research statement."
-            />
-            <PositionCard
-              role="Undergraduate research"
-              start="Each semester"
-              status="Open"
-              desc="UVA undergraduates in environmental science, computer science, statistics, or related fields can join through directed-research credit, work-study, or a senior thesis."
-              ddl="Email a brief note about your interests any time."
-            />
-            <PositionCard
-              role="Visiting scholars"
-              start="Year-round"
-              status="By arrangement"
-              desc="We host visiting students and faculty for short or extended stays, especially from partner institutions in the global south and arctic regions."
-              ddl="Reach out to discuss timing and shared interests."
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center" }} className="join-hero-grid">
+            <div>
+              <span className="eyebrow">Join us</span>
+              <h1 style={{
+                fontFamily: "var(--serif)", fontWeight: 350,
+                fontSize: "clamp(2rem, 4vw, 3.25rem)",
+                lineHeight: 1.08, letterSpacing: "-0.018em",
+                margin: "1rem 0 0", maxWidth: "22ch", textWrap: "balance",
+              }}>
+                There's a place for you here if you're curious about how plants are responding to a changing world.
+              </h1>
+              <p className="desc" style={{ marginTop: "1.25rem", maxWidth: "52ch" }}>
+                We welcome applications from prospective graduate students, postdocs, and undergraduate researchers. Below: what we look for, how to apply, and what to expect.
+              </p>
+            </div>
+            <img
+              src="uploads/groupphoto.webp"
+              alt="PERS Lab team at AGU"
+              style={{
+                width: "100%", aspectRatio: "4/3", objectFit: "cover", objectPosition: "center 30%",
+                borderRadius: 6, border: "1px solid var(--line)", display: "block",
+              }}
             />
           </div>
         </div>
-      </section>
+      </div>
+      <style>{`.join-hero-grid { } @media (max-width: 800px) { .join-hero-grid { grid-template-columns: 1fr !important; } }`}</style>
 
       {/* What we look for */}
       <section className="block" style={{ background: "var(--bg-2)", borderTop: "1px solid var(--line)" }}>
         <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "var(--gap)" }} className="join-grid">
           <div>
-            <span className="eyebrow">02 · Who fits here</span>
+            <span className="eyebrow">01 · Who fits here</span>
             <h2 className="section" style={{ marginTop: "1rem" }}>What we look for.</h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
             {[
-              ["Curiosity over credentials", "We care more about the questions you ask than the techniques you already know. We can teach you the tools."],
-              ["Quantitative comfort", "Most projects involve code (Python or R) and statistical thinking. You don't need to be an expert — but you should be willing to grow."],
-              ["Care for the field", "Many projects involve travel to remote sites in challenging conditions. We value people who are kind, careful, and supportive teammates in the field."],
+              ["Curiosity and drive over credentials", "We care more about the questions you ask and your agency than the techniques you already know. We can teach you the tools."],
+              ["Quantitative comfort", "Most projects involve coding (Python, R, Matlab, Agentic AI) and statistical thinking. You don't need to be an expert — but you should be willing to grow."],
+              ["Care for the field", "Many projects involve travel to remote sites in challenging conditions. We value people who are kind, careful, and supportive teammates in the field. Even for our lab members who do not need to do fieldwork, they are expected to visit the field a few times."],
               ["Open science", "We share our data, code, and ideas openly. We expect you to as well — and to help us hold ourselves to that standard."],
-              ["A long view", "Climate change is a long story. We work on questions that take years and team-scale effort. We support each other across that horizon."],
+              ["A long view", "Scientific research is a marathon, not a sprint. We work on questions that take years and team-scale effort. We support each other across that horizon."],
             ].map(([h, p]) => (
               <div key={h} style={{
                 display: "grid", gridTemplateColumns: "auto 1fr", gap: "1.25rem",
@@ -87,7 +71,7 @@ function JoinPage({ go }) {
       <section className="block">
         <div className="wrap">
           <SectionHead
-            index="03"
+            index="02"
             eyebrow="How to apply"
             title="Before you write."
             sub="A short, specific email is more useful than a long, generic one. Here's what helps us read your message carefully."
@@ -101,7 +85,7 @@ function JoinPage({ go }) {
               "Mention one or two papers from the lab and what drew you to them.",
               "Say a little about your background — coursework, research, fieldwork, hobbies — anything that helps us see you.",
               "Attach a CV or résumé. Transcripts and writing samples are welcome but not required.",
-              "If applying for a PhD, please also apply through the UVA program — emails alone don't enter the formal pool.",
+              "Please contact us as soon as you can, and we are eager to work with you throughout the process.",
             ].map((step, i) => (
               <li key={i} style={{
                 display: "grid", gridTemplateColumns: "auto 1fr", gap: "1.5rem", alignItems: "start",
@@ -130,11 +114,11 @@ function JoinPage({ go }) {
       {/* FAQ */}
       <section className="block" style={{ background: "var(--bg-2)", borderTop: "1px solid var(--line)" }}>
         <div className="wrap">
-          <SectionHead index="04" eyebrow="Common questions" title="A few things people ask." />
+          <SectionHead index="03" eyebrow="Common questions" title="A few things people ask." />
           <div className="grid-2">
             {[
-              ["Do I need a remote sensing background?", "No. We've trained students who started from pure ecology, pure CS, and everywhere in between. We want a mix."],
-              ["Is the lab GRE-required?", "UVA does not require the GRE for our program. Please don't send scores."],
+              ["Do I need a remote sensing background?", "No. We've trained students who started from pure ecology, environmental sciences in general, geography, GIS, engineering, and everywhere in between. We are building a diverse lab."],
+              ["Is the lab GRE-required?", "UVA does not require the GRE for our program. However, if you have taken one, you can share the information via email."],
               ["Can I visit before applying?", "Yes — and we encourage it. Email us; we can arrange a Zoom or, when feasible, an in-person visit."],
               ["Is funding guaranteed for PhD students?", "Admitted PhD students in our program receive multi-year support (stipend + tuition + health insurance) through a mix of fellowships, RAships, and TAships."],
             ].map(([q, a]) => (

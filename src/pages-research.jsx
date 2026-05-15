@@ -18,7 +18,10 @@ function ResearchPage({ go }) {
               gap: "var(--gap)", alignItems: "center",
             }} className="research-row">
               <div style={{ order: i % 2 === 0 ? 1 : 2 }}>
-                <Placeholder label={"figure · " + t.id} palette={t.palette} aspect="4/3" />
+                {t.image
+                  ? <img src={t.image} alt={t.title} style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", borderRadius: 4, border: "1px solid var(--line)", display: "block" }} />
+                  : <Placeholder label={"figure · " + t.id} palette={t.palette} aspect="4/3" />
+                }
               </div>
               <div style={{ order: i % 2 === 0 ? 2 : 1 }}>
                 <div className="mono" style={{ fontSize: 11, color: "var(--ink-3)", letterSpacing: "0.12em", textTransform: "uppercase" }}>

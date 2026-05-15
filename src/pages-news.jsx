@@ -2,8 +2,11 @@
 
 function NewsPage() {
   const [filter, setFilter] = React.useState("All");
+  const [visibleCount, setVisibleCount] = React.useState(5);
   const cats = ["All", ...new Set(NEWS.map((n) => n.category))];
-  const items = filter === "All" ? NEWS : NEWS.filter((n) => n.category === filter);
+  const allItems = filter === "All" ? NEWS : NEWS.filter((n) => n.category === filter);
+  const items = allItems.slice(0, visibleCount);
+  const hasMore = visibleCount < allItems.length;
 
   return (
     <div>
@@ -17,7 +20,7 @@ function NewsPage() {
           <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "2.5rem" }}>
             {cats.map((c) => (
               <button key={c}
-                onClick={() => setFilter(c)}
+                onClick={() => { setFilter(c); setVisibleCount(5); }}
                 className="chip"
                 style={{
                   cursor: "pointer", border: "none",
@@ -57,14 +60,25 @@ function NewsPage() {
                   <p style={{ marginTop: "0.7rem", color: "var(--ink-2)", lineHeight: 1.6, maxWidth: "60ch" }}>
                     {n.excerpt}
                   </p>
-                  <a href="#" style={{
+                  <a href={n.link || "#"} target={n.link ? "_blank" : "_self"} rel="noopener" style={{
                     display: "inline-block", marginTop: "0.85rem",
                     fontSize: 13, color: "var(--forest)", fontWeight: 500,
                   }}>
                     Read more →
                   </a>
                 </div>
-                {n.image ? (
+                {n.video ? (
+                  <video
+                    src={n.video}
+                    style={{ width: "100%", borderRadius: "8px", display: "block", backgroundColor: "#000" }}
+                    controls
+                    muted
+                    playsInline
+                    preload="metadata"
+                    onMouseEnter={e => e.currentTarget.play()}
+                    onMouseLeave={e => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
+                  />
+                ) : n.image ? (
                   <img src={n.image} alt={n.title} style={{ width: "100%", height: "auto", borderRadius: "8px", objectFit: "cover" }} />
                 ) : (
                   <Placeholder label={n.id} palette={n.palette} aspect="4/3" />
@@ -73,9 +87,13 @@ function NewsPage() {
             ))}
           </div>
 
-          <div style={{ marginTop: "3rem", textAlign: "center" }}>
-            <button className="btn ghost">Load older posts</button>
-          </div>
+          {hasMore && (
+            <div style={{ marginTop: "3rem", textAlign: "center" }}>
+              <button className="btn ghost" onClick={() => setVisibleCount(v => v + 5)}>
+                Load older posts <span className="arrow">↓</span>
+              </button>
+            </div>
+          )}
         </div>
       </section>
       <style>{`

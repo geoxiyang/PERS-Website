@@ -20,12 +20,12 @@ function App() {
     fetch("news.json")
       .then((res) => res.json())
       .then((data) => {
-        window.NEWS = data;
+        // Mutate the global NEWS array in place so all components see the update
+        NEWS.splice(0, NEWS.length, ...data);
         setNewsLoaded(true);
       })
       .catch((err) => {
         console.error("Failed to load news.json:", err);
-        window.NEWS = []; // Fallback to empty array
         setNewsLoaded(true);
       });
   }, []);
@@ -36,6 +36,15 @@ function App() {
     window.location.hash = id;
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
+
+  // Expose go() globally so non-React code (e.g. Leaflet popups) can navigate
+  React.useEffect(() => {
+    window.__navTo = (page, galleryFilter) => {
+      if (galleryFilter) window.__galleryFilter = galleryFilter;
+      go(page);
+    };
+    return () => { delete window.__navTo; };
+  }, [go]);
 
   React.useEffect(() => {
     const onHash = () => {
@@ -62,6 +71,8 @@ function App() {
     case "gallery": page = <GalleryPage />; break;
     case "data": page = <DataPage />; break;
     case "join": page = <JoinPage go={go} />; break;
+    case "contact": page = <ContactPage />; break;
+    case "teaching": page = <TeachingPage />; break;
     default: page = <HomePage go={go} hero={t.hero} />;
   }
 

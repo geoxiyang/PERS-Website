@@ -28,11 +28,24 @@ function GalleryPage() {
   };
 
   React.useEffect(() => {
-    // Check URL params for site filter
-    const params = new URLSearchParams(window.location.search);
-    const siteParam = params.get("site");
-    if (siteParam) setActiveSite(siteParam);
+    // Check for site filter set by map popup navigation
+    if (window.__galleryFilter) {
+      setActiveSite(window.__galleryFilter);
+      delete window.__galleryFilter;
+    }
   }, []);
+
+  // Keyboard navigation for lightbox
+  React.useEffect(() => {
+    if (!lightboxImage) return;
+    const handleKey = (e) => {
+      if (e.key === "ArrowLeft") prevImage();
+      else if (e.key === "ArrowRight") nextImage();
+      else if (e.key === "Escape") setLightboxImage(null);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [lightboxImage, currentImageIndex, displayedImages]);
 
   return (
     <div>

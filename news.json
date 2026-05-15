@@ -4,36 +4,38 @@
     "date": "2026-03-27",
     "category": "Award",
     "title": "Congratulations to Jessee Steele for the Miller Fund Grant!",
-    "excerpt": "Graduate Student Jessee Steele has been awarded a Miller Fund Grant to support his work on forestry research.",
+    "excerpt": "Graduate Student Jessee Steele has been awarded a grant to support his work on forestry research.",
     "palette": "clay",
-    "image": null
+    "image": "uploads/Jessee.webp"
   },
   {
     "id": "n-2026-henry-zejun",
     "date": "2026-03-17",
     "category": "Award",
-    "title": "Henry Yeung wins Jefferson Fellowship; Zejun Wu wins award too",
-    "excerpt": "Congratulations to Henry Yeung for winning the Jefferson Fellowship — a prestigious university-wide fellowship supporting a full year of stipend and research activities. And congratulations to Zejun Wu for his award as well!",
+    "title": "Henry and Zejun winning awards",
+    "excerpt": "Congratulations to Henry Yeung for winning the Jefferson Fellowship — a prestigious university-wide fellowship for grad students, supporting a full year of stipend and other activities. Congratulations also to Zejun Wu for his award!",
     "palette": "lichen",
-    "image": null
+    "image": "uploads/HenryZejun.webp"
   },
   {
     "id": "n-2026-puerto-rico",
     "date": "2026-03-01",
     "category": "Field",
-    "title": "Yiting and Zejun conduct TLS fieldwork in Puerto Rico",
-    "excerpt": "As part of our DOE-funded MACROCOSM project (PI: Xiangtao Xu, Cornell), our team successfully conducted a TLS field campaign near El Yunque forest in Puerto Rico. The TLS data will be used to understand tropical tree structure.",
+    "title": "Lab members Yiting and Zejun conducted fieldwork in Puerto Rico",
+    "excerpt": "As part of our DOE-funded MACROCOSM project (PI: Xiangtao Xu, Cornell), our team successfully conducted a TLS field campaign near the El Yunque forest in Puerto Rico. The TLS data will be used to understand tropical tree structure.",
     "palette": "default",
-    "image": null
+    "image": null,
+    "video": "uploads/IMG_0307.MP4"
   },
   {
     "id": "n-2026-washpost",
     "date": "2026-01-29",
     "category": "Press",
-    "title": "Washington Post covers our Ghost Forest work",
+    "title": "Washington Post covered our work on Ghost Forest",
     "excerpt": "The Washington Post featured our lab's research on ghost forests, highlighting how sea-level rise and saltwater intrusion are transforming coastal landscapes across the US eastern seaboard.",
     "palette": "lichen",
-    "image": null
+    "link": "https://www.washingtonpost.com/climate-environment/2026/01/30/ghost-forest-dead-trees-maps",
+    "image": "images/field-sites/nc-ghost-forest-03.jpg"
   },
   {
     "id": "n-2025-lidar-selfies",
@@ -42,33 +44,42 @@
     "title": "New LiDAR selfies of our lab!",
     "excerpt": "We created 3D LiDAR scans of our lab members — a fun showcase of the terrestrial laser scanning technology we use every day in the field.",
     "palette": "default",
-    "image": null
+    "image": "uploads/PERS_holiday_card.webp"
+  },
+  {
+    "id": "n-2025-science-ghost-forest",
+    "date": "2025-10-02",
+    "category": "Press",
+    "title": "Science covers our coastal ghost forest work",
+    "excerpt": "Journalist James Dinneen wrote an article about our work on coastal ghost forest after he joined our field campaign in North Carolina.",
+    "palette": "lichen",
+    "image": "uploads/_20251002_nid_ghost_forests_secondary.jpg"
   },
   {
     "id": "n-2025-theloracs",
     "date": "2025-09-15",
     "category": "Field",
-    "title": "THELORACS team conducts fieldwork in coastal North Carolina",
+    "title": "THELORACS team conducted fieldwork in coastal North Carolina",
     "excerpt": "UVA-led NASA-funded team THELORACS conducted a field campaign in coastal North Carolina, surveying ghost forests for water level, vegetation type, and plant cover. Science journalist James Dinneen joined us in the field.",
     "palette": "clay",
-    "image": null
+    "image": "https://uva.theopenscholar.com/files/plant-ecology-lab/files/images/img_5645.jpg"
   },
   {
     "id": "n-2025-neon-tls",
     "date": "2025-07-29",
     "category": "Field",
     "title": "TLS campaign across four NEON sites to understand tree structure variability",
-    "excerpt": "Led by postdoc Yiting Fan, our team visited SERC, SCBI, HARV, and BART this summer to conduct TLS scans of individual trees, timed to coincide with NEON AOP airborne flights for cross-scale data fusion.",
+    "excerpt": "Led by postdoc Yiting Fan, our team visited four NEON sites (SERC, SCBI, HARV, and BART) this summer to conduct TLS scans of individual trees, timed to coincide with NEON AOP airborne flights for cross-scale data fusion.",
     "palette": "default",
-    "image": null
+    "image": "https://uva.theopenscholar.com/files/plant-ecology-lab/files/images/img_6931.jpg"
   },
   {
     "id": "n-2025-phds",
     "date": "2025-05-15",
     "category": "Milestone",
-    "title": "Three PhDs graduated from the PEaRS lab!",
+    "title": "Three PhDs graduated from the PERS lab!",
     "excerpt": "Congratulations to Rong Li, Andrew Jablonski, and Hannah Mast for achieving this important milestone! We are immensely proud of all three and excited to see what they accomplish next.",
     "palette": "lichen",
-    "image": null
+    "image": "https://uva.theopenscholar.com/files/plant-ecology-lab/files/images/img_1878.jpg"
   }
 ]

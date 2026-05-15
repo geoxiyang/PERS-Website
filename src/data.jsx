@@ -1,7 +1,7 @@
 // Data shared across pages — updated with real lab info.
 const LAB = {
   name: "Plant Ecology & Remote Sensing Lab",
-  shortName: "PEaRS Lab",
+  shortName: "PERS Lab",
   tagline: "Reading the pulse of Earth's ecosystems — from the canopy down, and from orbit in.",
   intro:
     "We are global change ecologists. We use various tools — remote sensing, field observations, and modeling — to understand the impact of climate change on our ecosystems. We travel to ecosystems from tropics to the arctic. We use novel remote sensing techniques to see ecosystems in ways we couldn't before, and advanced computer science techniques to analyze geospatial products.",
@@ -26,6 +26,7 @@ const RESEARCH_THEMES = [
   {
     id: "T-01",
     title: "Ghost forests — sea level rise & saltwater intrusion",
+    image: "uploads/treemortality-c01e5600.webp",
     blurb:
       "Understanding how rising seas and saltwater intrusion are transforming coastal forests into ghost forests, using remote sensing to track the pace and pattern of forest retreat.",
     site: "Coastal US · Eastern seaboard",
@@ -42,14 +43,16 @@ const RESEARCH_THEMES = [
   {
     id: "T-03",
     title: "Tree mortality across the United States",
+    image: "uploads/treemortality.webp",
     blurb:
-      "Mapping and understanding individual-level tree mortality across the continent. We use very high-resolution remote sensing, LiDAR, and deep learning to understand the drivers of spatiotemporal patterns in tree mortality. With this unprecedented dataset, we will be able to test if we can predict the location and timing of tree mortality hotspots. ",
+      "Mapping and understanding individual-level tree mortality across the continent. We use very high-resolution remote sensing, LiDAR, and deep learning to map tree mortality at individual scale and understand the drivers of spatiotemporal patterns in tree mortality. With this unprecedented dataset, we will be able to test if we can predict the location and timing of tree mortality hotspots. ",
     site: "CONUS · NAIP · PLANETLAB",
     palette: "clay",
   },
   {
     id: "T-04",
     title: "Drone ecology & proximal remote sensing",
+    image: "uploads/drone.webp",
     blurb:
       "Bridging the scale gap between leaves and satellites with UAV-mounted RGB and hyperspectral payloads, plus tower-based continuous monitoring instruments like FluoSpec.",
     site: "Field campaigns, year-round",
@@ -58,6 +61,7 @@ const RESEARCH_THEMES = [
   {
     id: "T-05",
     title: "Solar-induced chlorophyll fluorescence (SIF)",
+    image: "uploads/sif.webp",
     blurb:
       "Pioneering the use of solar-induced chlorophyll fluorescence as a novel proxy for photosynthesis, from ground-based instruments to satellite applications, to track ecosystem carbon uptake.",
     site: "Tower sites · TROPOMI · OCO-2",
@@ -65,10 +69,11 @@ const RESEARCH_THEMES = [
   },
   {
     id: "T-06",
-    title: "Ecosystem and radiative transfer models",
+    title: "Hyperspectral remote sensing and radiative transfer models",
+    image: "uploads/neon_composites.webp",
     blurb:
-      "Coupling process-based vegetation models with remote sensing observations to constrain projections of the terrestrial carbon sink, including CLM-SIF and radiative transfer modeling.",
-    site: "CLM · FATES · radiative transfer",
+      "Coupling ecosystem models with remote sensing observations (LiDAR, hyperspectral, and SIF) to constrain prediction of ecosystem function",
+    site: "SCOPE · CLM · RADIATIVE TRANSFER · HYPERSPECTRAL",
     palette: "clay",
   },
 ];
@@ -83,8 +88,12 @@ const PEOPLE = [
         title: "Associate Professor · Lab Director",
         bio:
           "Global change ecologist studying vegetation-climate interactions through remote sensing, plant physiology, and modeling. Interested in forest structure and function, vegetation feedbacks to climate, and tree mortality. Develops novel approaches to quantify photosynthesis, canopy structure, and leaf traits remotely.\n\nPhD, Brown University, 2014.",
-        focus: ["SIF", "Remote sensing", "Plant physiology", "Climate change"],
+        image: "uploads/Xi.webp",
+        focus: ["SIF", "Remote sensing", "Plant physiology", "Canopy structure"],
         email: "xiyang [a] virginia_dot_edu",
+        linkedin: "https://www.linkedin.com/in/xi-yang-8154349/",
+        bluesky: "https://bsky.app/profile/xiyang.bsky.social",
+        scholar: "https://scholar.google.com/citations?user=90Z4IKYAAAAJ&hl=en",
         joined: "2016–present",
       },
     ],
@@ -110,8 +119,9 @@ const PEOPLE = [
         id: "g-01",
         name: "Wayne Dawson",
         title: "Graduate Student · Virginia Space Grant Fellow",
+        image: "uploads/WaynePortrait.jpg",
         bio:
-          "Department of Environmental Sciences. Supported by the Virginia Space Grant Fellowship.",
+          "Wayne's work is centered on understanding how emerging remote sensing techniques, such as solar-induced fluorescence or microwave signals from GNSS receivers, can be used to monitor plant physiology in remote boreal forests. These forests are hard to access and are rapidly transforming under anthropogenic climate change, so there is high demand to monitor these areas through plane and satellite remote sensing. Wayne works on the ground collecting fine-scale remote sensing data to help us better understand what exactly that coarse satellite data is telling us about boreal forests.",
         focus: ["Remote sensing", "Ecology"],
         email: "wfd2bv@virginia.edu",
         joined: "Current",
@@ -120,17 +130,19 @@ const PEOPLE = [
         id: "g-02",
         name: "Elsie Liu",
         title: "Graduate Student",
+        image: "uploads/elsie-acdccaef.jpg",
         bio:
-          "Research in plant ecology and remote sensing, contributing to the lab's work on ecosystem monitoring and vegetation traits.",
-        focus: ["Plant ecology", "Remote sensing"],
+          "Elsie's research focuses on forest resilience, early warning signals of ecosystem transitions, and spatial variation in aboveground biomass along coastal elevation and salinity gradients. Elsie investigates how coastal forests respond to environmental change across the North American Coastal Plain using remote sensing and time series analysis.",
+        focus: ["Coastal Ecosystems", "Remote sensing"],
         joined: "Current",
       },
       {
         id: "g-03",
         name: "Jessee Steele",
         title: "Graduate Student · NSF GRFP Fellow",
+        image: "uploads/Jessee.webp",
         bio:
-          "NSF GRFP Fellow.",
+          "Jessee is broadly interested in how climate change affects ecosystem disturbance and recovery cycles. He is curious about how our understanding of ecological processes is constrained by the scale of our observations (e.g., too local to generalize; too coarse to specify). Combining these interests, his current research examines what happens to forests as they die, using deep learning methods to identify individual dead trees across the Western United States and designing novel approaches to analyze such unprecedently high-resolution data. B.Sc. from Duke University.",
         focus: ["Forestry", "Remote sensing"],
         joined: "Current",
       },
@@ -147,9 +159,10 @@ const PEOPLE = [
         id: "g-05",
         name: "Henry Yeung",
         title: "Graduate Student · Jefferson Fellow",
+        image: "uploads/IMG_5421.jpg",
         bio:
-          "Won the Jefferson Fellowship (2026), a prestigious university-wide fellowship providing a full year of stipend and research support. Works on remote sensing of vegetation structure and function. B.Sc. from the Chinese University of Hong Kong.",
-        focus: ["Remote sensing", "Vegetation"],
+          "Henry uses very-high-resolution satellite imagery and deep learning to study coastal tree mortality and human-natural systems (e.g. wildfire damage). He is also generally interested in anything related to terrestrial ecology, geography, and remote sensing.",
+        focus: ["Remote sensing", "Deep learning", "Coastal ecology", "Tree mortality"],
         joined: "2022–present",
       },
     ],
@@ -479,57 +492,68 @@ const PUBLICATIONS = [
 const RESOURCES = [
   {
     kind: "Algorithm",
-    title: "TLSLeAF — automatic leaf angle estimates from terrestrial laser scanning",
-    blurb:
-      "An open-source method for automatically deriving leaf angle distributions from single-scan TLS data. Published in New Phytologist.",
-    stats: [{ k: "method", v: "TLS" }, { k: "language", v: "Python" }],
-    link: "github.com — Stovall et al. 2021",
-    palette: "default",
-  },
-  {
-    kind: "Instrument",
-    title: "FluoSpec 3 — continuous canopy SIF monitoring",
-    blurb:
-      "Tower-mounted spectrometer system for automated, continuous measurement of solar-induced chlorophyll fluorescence. Deployed at multiple flux tower sites.",
-    stats: [{ k: "sites", v: "3+" }, { k: "data", v: "continuous" }],
-    link: "Contact lab for details",
-    palette: "lichen",
+    title: "TLSLeAF: an automated algorithm to retrieve leaf angle from TLS data",
+    citation: "Stovall et al., 2021",
+    url: "https://github.com/aestovall/TLSLeAF",
+    urlLabel: "GitHub — aestovall/TLSLeAF",
   },
   {
     kind: "Dataset",
-    title: "Ground far-red SIF and vegetation indices — US Midwestern agroecosystems",
-    blurb:
-      "Long-term ground SIF and vegetation index records from tower sites, useful for satellite SIF validation and mechanistic interpretation of fluorescence signals.",
-    stats: [{ k: "region", v: "Midwest US" }, { k: "type", v: "Time series" }],
-    link: "See associated publications",
-    palette: "clay",
+    title: "Canopy temperature data",
+    citation: "Yi et al., 2020",
+    url: "https://doi.org/10.5281/zenodo.3896812",
+    urlLabel: "Zenodo · doi:10.5281/zenodo.3896812",
   },
   {
-    kind: "Model",
-    title: "CLM-SIF — SIF simulation in the Community Land Model",
-    blurb:
-      "Implementation of leaf-to-canopy radiative transfer processes for simulating far-red SIF in CLM version 5, improving representation of canopy-scale fluorescence.",
-    stats: [{ k: "model", v: "CLM5" }, { k: "scope", v: "Global" }],
-    link: "Li et al. 2022 · JAMES",
-    palette: "default",
+    kind: "Code + Data",
+    title: "Data and code accompanying the California drought study",
+    citation: "Yang et al., 2021",
+    url: "https://github.com/geoxiyang/CaliforniaDrought_JGR_2021",
+    urlLabel: "GitHub — geoxiyang/CaliforniaDrought_JGR_2021",
   },
   {
     kind: "Dataset",
-    title: "Coastal forest change — North American coastal plain",
-    blurb:
-      "Remote sensing products documenting the widespread loss of coastal forested wetlands driven by sea-level rise, saltwater intrusion, and extreme events along the US eastern seaboard.",
-    stats: [{ k: "extent", v: "E. US" }, { k: "years", v: "multi-decadal" }],
-    link: "White et al. 2021 · Ury et al. 2021",
-    palette: "lichen",
+    title: "Data on SIF and short-term drought",
+    citation: "Helm et al., 2020",
+    url: "https://doi.org/10.6084/m9.figshare.9968372.v1",
+    urlLabel: "figshare · doi:10.6084/m9.figshare.9968372.v1",
   },
   {
-    kind: "Tutorial",
-    title: "Advanced Remote Sensing — course materials",
-    blurb:
-      "Materials from the graduate-level Advanced Remote Sensing course taught at UVA since 2017, covering SIF, imaging spectroscopy, lidar, and thermal remote sensing.",
-    stats: [{ k: "level", v: "Graduate" }, { k: "since", v: "2017" }],
-    link: "Available on request",
-    palette: "default",
+    kind: "Code + Data",
+    title: "Data and code from tree mortality analysis",
+    citation: "Stovall et al., 2019",
+    url: "https://github.com/aestovall/tree_mortality",
+    urlLabel: "GitHub — aestovall/tree_mortality",
+    url2: "https://doi.org/10.6084/m9.figshare.7609193.v1",
+    urlLabel2: "figshare · doi:10.6084/m9.figshare.7609193.v1",
+  },
+  {
+    kind: "Dataset",
+    title: "Leaf traits and spectra data",
+    citation: "Yang et al., 2016",
+    url: "https://github.com/geoxiyang/LeafTraitSpectraSeasonality-Yangetal2016RSE",
+    urlLabel: "GitHub — geoxiyang/LeafTraitSpectraSeasonality",
+  },
+  {
+    kind: "Dataset",
+    title: "Tower-Based Visible and Near-Infrared Remote Sensing Observations at Caribou-Poker Creeks Research Watershed, Alaska (April 2023–July 2024)",
+    citation: "Dawson et al.",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=90Z4IKYAAAAJ&sortby=pubdate&citation_for_view=90Z4IKYAAAAJ:2tRrZ1ZAMYUC",
+    urlLabel: "Google Scholar",
+  },
+  {
+    kind: "Dataset",
+    title: "Caribou-Poker Creeks Research Watershed (Alaska) Pulse-Amplitude Modulation Fluorometry Needle-Scale Observations (March 2022–July 2024)",
+    citation: "",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=90Z4IKYAAAAJ&sortby=pubdate&citation_for_view=90Z4IKYAAAAJ:AHdEip9mkN0C",
+    urlLabel: "Google Scholar",
+  },
+  {
+    kind: "App",
+    title: "Coastal tree mortality data — Atlantic coast dead tree mapping",
+    citation: "Yeung et al.",
+    url: "https://ee-chihgyeung.projects.earthengine.app/view/treedeath-atlanticus",
+    urlLabel: "Earth Engine App — treedeath-atlanticus",
   },
 ];
 
