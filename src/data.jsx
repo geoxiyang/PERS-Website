@@ -107,7 +107,7 @@ const PEOPLE = [
         title: "Postdoctoral Researcher",
         image: "uploads/YitingFan_headshot.jpg",
         bio:
-          "Leads TLS field campaigns across NEON sites. Led the 2025 summer campaign across SERC, SCBI, HARV, and BART coinciding with NEON AOP flights. Also involved in DOE-funded MACROCOSM project TLS work in Puerto Rico.",
+          "Yiting's research focuses on forest canopy structure across multiple scales and how it influences ecosystem function. She uses advanced remote sensing, including LiDAR and airborne imaging spectroscopy, to characterize the canopy structure like leaf angle, foliage clumping, and canopy density, and examine how these traits relate to forest productivity. Understanding these structural controls on forest function can inform forest monitoring and management under environmental change.",
         focus: ["TLS", "Tree structure", "NEON"],
         joined: "2024–present",
       },
@@ -153,7 +153,7 @@ const PEOPLE = [
         title: "Graduate Student",
         image: "uploads/ZejunWu_headshot.jpg",
         bio:
-          "Conducted TLS fieldwork in Puerto Rico's El Yunque forest as part of the DOE-funded MACROCOSM project. Recently won an award (2026).",
+          "Zejun is interested in plant ecology with help of remote sensing and field observations. Recently, her work has focused more on changes in forest canopy structure (e.g., canopy depth, leaf angle distribution) by airborne LiDAR and terrestrial laser scanning (TLS).",
         focus: ["TLS", "Tropical forests"],
         joined: "Current",
       },
