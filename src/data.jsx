@@ -105,6 +105,7 @@ const PEOPLE = [
         id: "p-01",
         name: "Yiting Fan",
         title: "Postdoctoral Researcher",
+        image: "uploads/YitingFan_headshot.jpg",
         bio:
           "Leads TLS field campaigns across NEON sites. Led the 2025 summer campaign across SERC, SCBI, HARV, and BART coinciding with NEON AOP flights. Also involved in DOE-funded MACROCOSM project TLS work in Puerto Rico.",
         focus: ["TLS", "Tree structure", "NEON"],
@@ -150,6 +151,7 @@ const PEOPLE = [
         id: "g-04",
         name: "Zejun Wu",
         title: "Graduate Student",
+        image: "uploads/ZejunWu_headshot.jpg",
         bio:
           "Conducted TLS fieldwork in Puerto Rico's El Yunque forest as part of the DOE-funded MACROCOSM project. Recently won an award (2026).",
         focus: ["TLS", "Tropical forests"],
