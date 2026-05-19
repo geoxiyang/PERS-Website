@@ -19,7 +19,7 @@ function ResearchPage({ go }) {
             }} className="research-row">
               <div style={{ order: i % 2 === 0 ? 1 : 2 }}>
                 {t.image
-                  ? <img src={t.image} alt={t.title} style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", borderRadius: 4, border: "1px solid var(--line)", display: "block" }} />
+                  ? <img src={t.image} alt={t.title} style={{ width: "100%", aspectRatio: t.aspect || "4/3", objectFit: t.objectFit || "cover", borderRadius: 4, border: "1px solid var(--line)", display: "block" }} />
                   : <Placeholder label={"figure · " + t.id} palette={t.palette} aspect="4/3" />
                 }
               </div>

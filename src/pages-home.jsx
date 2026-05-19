@@ -193,7 +193,7 @@ function SectionResearchSnapshot({ go }) {
           {RESEARCH_THEMES.slice(0, 6).map((t) =>
           <article key={t.id} className="card hover" onClick={() => go("research")} style={{ display: "flex", flexDirection: "column", gap: "1rem", cursor: "pointer" }}>
               {t.image
-                ? <img src={t.image} alt={t.title} style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", borderRadius: 4, border: "1px solid var(--line)", display: "block" }} />
+                ? <img src={t.image} alt={t.title} style={{ width: "100%", aspectRatio: t.aspect || "4/3", objectFit: t.objectFit || "cover", borderRadius: 4, border: "1px solid var(--line)", display: "block" }} />
                 : <Placeholder label={t.id + " · field imagery"} palette={t.palette} aspect="4/3" />
               }
               <div>
