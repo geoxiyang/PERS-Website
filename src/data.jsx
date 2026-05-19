@@ -39,6 +39,7 @@ const RESEARCH_THEMES = [
       "Using terrestrial laser scanning to build detailed 3D reconstructions of tree architecture, revealing how leaf arrangement like leaf angle and clumping impact light absorption and remote sensing signals, and how branching patterns, crown shape, and structural allocation emerge from competition, environment, and evolutionary history.",
     site: "NEON sites · TLS · NEON AOP",
     palette: "default",
+    image: "uploads/TreeShape.png",
   },
   {
     id: "T-03",
