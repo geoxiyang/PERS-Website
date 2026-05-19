@@ -40,6 +40,8 @@ const RESEARCH_THEMES = [
     site: "NEON sites · TLS · NEON AOP",
     palette: "default",
     image: "uploads/TreeShape.png",
+    objectFit: "contain",
+    aspect: "2/1",
   },
   {
     id: "T-03",
