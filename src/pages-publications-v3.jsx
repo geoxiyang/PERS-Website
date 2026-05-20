@@ -4,9 +4,9 @@ function PublicationsPageV3() {
   const [filter, setFilter] = React.useState("all");
   const [bibData, setBibData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
+  const [pdfKeys, setPdfKeys] = React.useState(new Set());
 
   React.useEffect(() => {
-    // Load and parse BibTeX file
     fetch("uploads/works.bib")
       .then(r => r.text())
       .then(text => {
@@ -18,6 +18,11 @@ function PublicationsPageV3() {
         console.error("Failed to load BibTeX:", err);
         setLoading(false);
       });
+
+    fetch("uploads/papers/index.json")
+      .then(r => r.json())
+      .then(keys => setPdfKeys(new Set(keys)))
+      .catch(() => {});
   }, []);
 
   // Parse BibTeX entries into structured data
@@ -218,7 +223,11 @@ function PublicationsPageV3() {
         eyebrow="Publications"
         title="Research output from the lab."
         desc="A comprehensive list of peer-reviewed publications. Filter by year or research topic. PDFs available on request from corresponding authors."
-        meta="View on Google Scholar · ORCID 0000-0002-XXXX-XXXX"
+        meta={<>
+          <a href="https://scholar.google.com/citations?user=90Z4IKYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style={{ color: "var(--forest)", textDecoration: "underline", textUnderlineOffset: "2px" }}>View on Google Scholar</a>
+          {" · "}
+          <a href="https://orcid.org/0000-0002-5095-6735" target="_blank" rel="noopener noreferrer" style={{ color: "var(--forest)", textDecoration: "underline", textUnderlineOffset: "2px" }}>ORCID 0000-0002-5095-6735</a>
+        </>}
       />
       
       <section className="block">
@@ -289,6 +298,19 @@ function PublicationsPageV3() {
                               >
                                 {p.url}
                               </a>
+                            )}
+                            {pdfKeys.has(p.key) && (
+                              <>
+                                {" · "}
+                                <a
+                                  href={"uploads/papers/" + p.key + ".pdf"}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{ color: "var(--forest)", textDecoration: "underline", textUnderlineOffset: "2px" }}
+                                >
+                                  PDF
+                                </a>
+                              </>
                             )}
                           </div>
                         </div>

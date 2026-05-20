@@ -14,7 +14,7 @@ function PeoplePage() {
         eyebrow="People"
         title="The lab is its people."
         desc="A small but dynamic team of global ecologists. Click any portrait to read more."
-        meta={"13 current members · alumni listed below"}
+        meta={"7 current members · alumni listed below"}
       />
 
       {/* ── Current members ── */}
