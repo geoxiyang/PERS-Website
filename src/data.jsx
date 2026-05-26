@@ -316,7 +316,7 @@ const PUBLICATIONS = [
         tags: ["SIF", "Photosynthesis", "Review"],
       },
       {
-        authors: "Kim, J., Root, A., Benson, M.C., Beverly, D., Johnson, J.E., Lerdau, M., Phillips, R.P., Yang, X.",
+        authors: "Kim, J., Root, A., Benson, M.C., Beverly, D., Johnson, J.E., Lerdau, M., Phillips, R.P., Novick, K.A., Yang, X.",
         title: "Leaf angle adjustment improves apparent covariation between fluorescence and photochemical quantum yields across leaves.",
         venue: "Remote Sensing of Environment 341: 115427",
         doi: "10.1016/j.rse.2026.115427",
