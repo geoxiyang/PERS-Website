@@ -309,6 +309,20 @@ const PUBLICATIONS = [
     year: 2026,
     items: [
       {
+        authors: "Yang, X., Guan, K., Chen, M., Johnson, J.E., Li, R., Kimm, H., Wu, G., Kim, J., Dashti, H., Wang, S., Lerdau, M., Frankenberg, C., Berry, J.A.",
+        title: "Sensing plant photosynthesis using solar-induced chlorophyll fluorescence: From chloroplasts to the globe.",
+        venue: "Annual Review of Plant Biology",
+        doi: "10.1146/annurev-arplant-090324-115537",
+        tags: ["SIF", "Photosynthesis", "Review"],
+      },
+      {
+        authors: "Kim, J., Root, A., Benson, M.C., Beverly, D., Johnson, J.E., Lerdau, M., Phillips, R.P., Yang, X.",
+        title: "Leaf angle adjustment improves apparent covariation between fluorescence and photochemical quantum yields across leaves.",
+        venue: "Remote Sensing of Environment 341: 115427",
+        doi: "10.1016/j.rse.2026.115427",
+        tags: ["SIF", "Leaf angle", "Fluorescence"],
+      },
+      {
         authors: "Dawson III, W., Jablonski, A., Kim, J., Watts, J., Epstein, H., Yang, X.",
         title: "Tower-Based Visible and Near-Infrared Remote Sensing Observations at Caribou-Poker Creeks Research Watershed, Alaska (April 2023–July 2024).",
         venue: "Data publication",
