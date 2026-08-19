@@ -353,6 +353,37 @@ const GALLERY_IMAGES = [
     thumbnail: "images/field-sites/DSC_0402.jpg",
     caption: "Looking up Tanguro Farm's research tower, Mato Grosso, Brazil.",
   },
+
+  // NEON GRSM — Great Smoky Mountains
+  {
+    id: "img-grsm-01",
+    siteId: "fs-19",
+    siteName: "NEON GRSM — Great Smoky Mountains",
+    title: "Lab team above the clouds at GRSM",
+    url: "images/field-sites/IMG_7822.jpg",
+    thumbnail: "images/field-sites/IMG_7822.jpg",
+    caption: "The team pauses for a photo on a foggy overlook near NEON's Great Smoky Mountains (GRSM) site during a TLS field campaign.",
+  },
+  {
+    id: "img-grsm-02",
+    siteId: "fs-19",
+    siteName: "NEON GRSM — Great Smoky Mountains",
+    title: "Cloud-draped ridgeline at GRSM",
+    url: "images/field-sites/IMG_7854.jpg",
+    thumbnail: "images/field-sites/IMG_7854.jpg",
+    caption: "Forested slopes and a switchback road disappear into the clouds near the NEON GRSM site in the Great Smoky Mountains.",
+  },
+
+  // NEON MLBS — Mountain Lake Biological Station
+  {
+    id: "img-mlbs-01",
+    siteId: "fs-20",
+    siteName: "NEON MLBS — Mountain Lake Biological Station",
+    title: "TLS scanner set up in the fern understory",
+    url: "images/field-sites/IMG_5971.jpg",
+    thumbnail: "images/field-sites/IMG_5971.jpg",
+    caption: "A Leica terrestrial laser scanner set up amid dense ferns at NEON's Mountain Lake Biological Station (MLBS) site, with the rest of the team scanning trees in the background.",
+  },
 ];
 
 Object.assign(window, { GALLERY_IMAGES });

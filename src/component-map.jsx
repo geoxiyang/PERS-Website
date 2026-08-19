@@ -92,6 +92,20 @@ const FIELD_SITES = [
     label: "La Selva Biological Station — Costa Rica",
     imageUrl: "images/field-sites/IMG_3277.jpg",
   },
+  {
+    id: "fs-19",
+    lat: 35.6890,
+    lng: -83.5015,
+    label: "NEON GRSM — Great Smoky Mountains",
+    imageUrl: "images/field-sites/IMG_7822.jpg",
+  },
+  {
+    id: "fs-20",
+    lat: 37.3778,
+    lng: -80.5247,
+    label: "NEON MLBS — Mountain Lake Biological Station",
+    imageUrl: "images/field-sites/IMG_5971.jpg",
+  },
 ];
 
 function InteractiveMapComponent({ sites }) {

@@ -1,5 +1,14 @@
 [
   {
+    "id": "n-2026-neon-grsm-mlbs",
+    "date": "2026-08-18",
+    "category": "Field",
+    "title": "Lab members conducted TLS scans at NEON sites.",
+    "excerpt": "Lab members Yiting Fan, Zejun Wu, Jessee Steele, Elsie Liu, and Henry Yeung visited NEON's GRSM and MLBS sites for TLS scans of the NEON plots and individual species.",
+    "palette": "default",
+    "image": "images/field-sites/IMG_7822.jpg"
+  },
+  {
     "id": "n-2026-jessee",
     "date": "2026-03-27",
     "category": "Award",
