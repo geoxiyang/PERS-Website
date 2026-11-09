@@ -1,5 +1,32 @@
 [
   {
+    "id": "n-2026-gcc-elsie-henry",
+    "date": "2026-11-08",
+    "category": "Conference",
+    "title": "Elsie Liu and Henry Yeung attended the 2026 Graduate Climate Conference",
+    "excerpt": "Graduate students Elsie Liu and Henry Yeung attended the 2026 GCC in Seattle last weekend. This is a fantastic opportunity for graduate students in this field to learn from one another. PI Xi Yang attended GCC in 2013.",
+    "palette": "clay",
+    "image": "uploads/GCC2026_Elsie_Henry.jpg"
+  },
+  {
+    "id": "n-2026-yiting-neon-ambassador",
+    "date": "2026-11-03",
+    "category": "Milestone",
+    "title": "Yiting Fan selected for NEON's ambassador program",
+    "excerpt": "Postdoc Yiting Fan joined the NEON ambassador program with eight other early-career researchers or educators to boost interactions between NEON and the community.",
+    "palette": "lichen",
+    "image": "uploads/Yiting_NEON_ambassadors.webp"
+  },
+  {
+    "id": "n-2026-wayne-defense",
+    "date": "2026-10-23",
+    "category": "Milestone",
+    "title": "Wayne Dawson III defends his PhD thesis!",
+    "excerpt": "Congratulations to Dr. Wayne Dawson for successfully defending his thesis on the carbon and water cycles of boreal forests. Wayne used his field observations of solar-induced chlorophyll fluorescence, PAM fluorescence, and GNSS-based VOD to understand the environmental controls of these metrics.",
+    "palette": "default",
+    "image": "uploads/Wayne_defense_group.jpg"
+  },
+  {
     "id": "n-2026-neon-grsm-mlbs",
     "date": "2026-08-18",
     "category": "Field",
