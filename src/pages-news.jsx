@@ -58,7 +58,7 @@ function NewsPage() {
                     {n.title}
                   </h3>
                   <p style={{ marginTop: "0.7rem", color: "var(--ink-2)", lineHeight: 1.6, maxWidth: "60ch" }}>
-                    {n.excerpt}
+                    <LinkedText text={n.excerpt} />
                   </p>
                   <a href={n.link || "#"} target={n.link ? "_blank" : "_self"} rel="noopener" style={{
                     display: "inline-block", marginTop: "0.85rem",
@@ -107,7 +107,7 @@ function NewsPage() {
 
 function formatDate(iso) {
   const d = new Date(iso);
-  return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
 }
 
 Object.assign(window, { NewsPage });

@@ -269,7 +269,7 @@ function SectionRecentNews({ go }) {
                 </div>
                 <h3 className="h3" style={{ fontSize: "1.2rem" }}>{n.title}</h3>
                 <p style={{ marginTop: "0.6rem", color: "var(--ink-2)", fontSize: 14, lineHeight: 1.55 }}>
-                  {n.excerpt}
+                  <LinkedText text={n.excerpt} />
                 </p>
               </div>
             </article>

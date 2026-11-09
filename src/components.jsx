@@ -117,4 +117,23 @@ function Placeholder({ label, palette = "default", aspect = "16/9", style }) {
 
 }
 
-Object.assign(window, { NavBar, Footer, PageHeader, SectionHead, Placeholder });
+// Renders text with inline markdown-style links: "see [NEON](https://...)"
+function LinkedText({ text }) {
+  if (!text) return null;
+  const parts = [];
+  const re = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+  let last = 0, m;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    parts.push(
+      <a key={m.index} href={m[2]} target="_blank" rel="noopener noreferrer"
+         style={{ textDecoration: "underline", textUnderlineOffset: "2px", color: "var(--ink)" }}>
+        {m[1]}
+      </a>);
+    last = re.lastIndex;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return <>{parts}</>;
+}
+
+Object.assign(window, { NavBar, Footer, PageHeader, SectionHead, Placeholder, LinkedText });
