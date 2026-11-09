@@ -362,7 +362,7 @@ const GALLERY_IMAGES = [
     title: "Lab team above the clouds at GRSM",
     url: "images/field-sites/IMG_7822.jpg",
     thumbnail: "images/field-sites/IMG_7822.jpg",
-    caption: "The team pauses for a photo on a foggy overlook near NEON's Great Smoky Mountains (GRSM) site during a TLS field campaign.",
+    caption: "The team pauses for a photo on a foggy overlook near NEON's Great Smoky Mountains (GRSM) site during a TLS field campaign. Photo credit: Henry Yeung.",
   },
   {
     id: "img-grsm-02",
@@ -371,7 +371,7 @@ const GALLERY_IMAGES = [
     title: "Cloud-draped ridgeline at GRSM",
     url: "images/field-sites/IMG_7854.jpg",
     thumbnail: "images/field-sites/IMG_7854.jpg",
-    caption: "Forested slopes and a switchback road disappear into the clouds near the NEON GRSM site in the Great Smoky Mountains.",
+    caption: "Forested slopes and a switchback road disappear into the clouds near the NEON GRSM site in the Great Smoky Mountains. Photo credit: Jessee Steele.",
   },
 
   // NEON MLBS — Mountain Lake Biological Station
@@ -382,7 +382,7 @@ const GALLERY_IMAGES = [
     title: "TLS scanner set up in the fern understory",
     url: "images/field-sites/IMG_5971.jpg",
     thumbnail: "images/field-sites/IMG_5971.jpg",
-    caption: "A Leica terrestrial laser scanner set up amid dense ferns at NEON's Mountain Lake Biological Station (MLBS) site, with the rest of the team scanning trees in the background.",
+    caption: "A Leica terrestrial laser scanner set up amid dense ferns at NEON's Mountain Lake Biological Station (MLBS) site, with the rest of the team scanning trees in the background. Photo credit: Yiting Fan.",
   },
 ];
 
