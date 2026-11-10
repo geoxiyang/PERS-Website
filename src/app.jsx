@@ -55,6 +55,13 @@ function App() {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
+  // Count section changes as page views (the first view is counted on load).
+  const firstRoute = React.useRef(true);
+  React.useEffect(() => {
+    if (firstRoute.current) { firstRoute.current = false; return; }
+    if (window.trackPageview) window.trackPageview();
+  }, [route]);
+
   // Apply theme + density to root.
   React.useEffect(() => {
     document.documentElement.dataset.theme = t.theme;

@@ -68,6 +68,7 @@ function Footer({ go }) {
             </ul>
           </div>
         </div>
+        <VisitorMap />
         <div className="legal">
           <span>© 2026 {LAB.shortName} · {LAB.university}</span>
           <span>v.2026.04 · last updated April 18</span>
@@ -75,6 +76,30 @@ function Footer({ go }) {
       </div>
     </footer>);
 
+}
+
+// Public visitor map (ClustrMaps / MapMyVisitors), configured in analytics.js.
+// Renders nothing until a widget is configured.
+function VisitorMap() {
+  const ref = React.useRef(null);
+  const cfg = (window.SITE_ANALYTICS || {}).visitorMap || {};
+  React.useEffect(() => {
+    if (!cfg.src || !cfg.scriptId || !ref.current || ref.current.childElementCount) return;
+    const s = document.createElement("script");
+    s.id = cfg.scriptId;
+    s.src = cfg.src;
+    s.async = true;
+    ref.current.appendChild(s);
+  }, []);
+  if (!cfg.src || !cfg.scriptId) return null;
+  return (
+    <div style={{ marginTop: "2.5rem", display: "flex", flexWrap: "wrap", gap: "1.5rem", alignItems: "center" }}>
+      <div ref={ref} style={{ width: 220, maxWidth: "100%", overflow: "hidden", borderRadius: 4 }} />
+      <div style={{ fontSize: 13, color: "var(--ink-3)", maxWidth: "46ch", lineHeight: 1.55 }}>
+        Where our visitors come from. This site collects anonymous visit statistics
+        (approximate location and time) using Statcounter and a visitor-map service.
+      </div>
+    </div>);
 }
 
 function PageHeader({ eyebrow, title, desc, meta }) {
@@ -136,4 +161,4 @@ function LinkedText({ text }) {
   return <>{parts}</>;
 }
 
-Object.assign(window, { NavBar, Footer, PageHeader, SectionHead, Placeholder, LinkedText });
+Object.assign(window, { NavBar, Footer, PageHeader, SectionHead, Placeholder, LinkedText, VisitorMap });
