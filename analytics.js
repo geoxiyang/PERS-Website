@@ -16,8 +16,8 @@ window.SITE_ANALYTICS = {
     security: "05552b5b",  // sc_security
   },
   visitorMap: {
-    scriptId: "",
-    src: "",
+    scriptId: "mmvst_globe",
+    src: "https://mapmyvisitors.com/globe.js?d=_d9XCuTEhLwzcGz3h9kKSEW6DlchbNjPLYvB00Il-1k",
   },
 };
 

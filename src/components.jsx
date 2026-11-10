@@ -85,11 +85,23 @@ function VisitorMap() {
   const cfg = (window.SITE_ANALYTICS || {}).visitorMap || {};
   React.useEffect(() => {
     if (!cfg.src || !cfg.scriptId || !ref.current || ref.current.childElementCount) return;
+    // These widgets wait for the window "load" event before drawing, but this
+    // footer mounts after that event has fired. While the widget starts up,
+    // run any window load handler it adds right away instead.
+    const origAdd = window.addEventListener;
+    window.addEventListener = function (type, fn, opts) {
+      if (type === "load" && document.readyState === "complete" && typeof fn === "function") {
+        setTimeout(() => fn.call(window, new Event("load")), 0);
+      }
+      return origAdd.call(this, type, fn, opts);
+    };
+    const restore = setTimeout(() => { window.addEventListener = origAdd; }, 20000);
     const s = document.createElement("script");
     s.id = cfg.scriptId;
     s.src = cfg.src;
     s.async = true;
     ref.current.appendChild(s);
+    return () => { clearTimeout(restore); window.addEventListener = origAdd; };
   }, []);
   if (!cfg.src || !cfg.scriptId) return null;
   return (
